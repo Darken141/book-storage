@@ -14,3 +14,10 @@
   grid-template-columns: repeat(auto-fit, minmax(27.5rem, 1fr));
   grid-gap: 1rem;
 }
+
+.heading {
+  font-size: clamp(2rem, 5vw, 6rem);
+  font-weight: 400;
+  margin-bottom: 2rem;
+  text-align: center;
+}
