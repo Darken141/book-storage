@@ -50,6 +50,12 @@ export const bookStorage = createSlice({
     addBook: (state, action: PayloadAction<IBook>) => {
       state.books.push(action.payload)
     },
+    updateBook: (state, action: PayloadAction<IBook>) => {
+      const index = state.books.findIndex(
+        (book) => book.id === action.payload.id
+      )
+      state.books[index] = action.payload
+    },
     removeBook: (state, action: PayloadAction<string>) => {
       state.books = state.books.filter((book) => book.id !== action.payload)
     },
@@ -71,6 +77,7 @@ export const bookStorage = createSlice({
 
 export const {
   addBook,
+  updateBook,
   removeBook,
   selectBook,
   clearSelectedBook,
