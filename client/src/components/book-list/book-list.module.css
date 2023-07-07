@@ -1,0 +1,19 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.modal-wrapper {
+  padding: 2rem 4rem;
+}
+
+.modal-wrapper h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  margin-right: 3rem;
+}
+
+.modal-wrapper p {
+  font-size: 1.6rem;
+}
