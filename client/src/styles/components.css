@@ -12,12 +12,28 @@
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(27.5rem, 1fr));
-  grid-gap: 1rem;
+  grid-gap: 4rem;
 }
 
 .heading {
   font-size: clamp(2rem, 5vw, 6rem);
   font-weight: 400;
+  margin-top: 1rem;
   margin-bottom: 2rem;
   text-align: center;
+  letter-spacing: -0.16rem;
+}
+
+.icon-button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: #aaa;
+  transition: color 0.2s ease-in-out;
+}
+
+.icon-button:hover {
+  color: #fff;
 }
