@@ -3,6 +3,7 @@ import { Providers } from '@/redux/provider.redux'
 
 import '@/styles/globals.css'
 import '@/styles/components.css'
+import '@/styles/variables.css'
 
 const montserrat = Montserrat({
   style: ['normal'],
@@ -23,7 +24,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={montserrat.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+          <div id="portal" />
+        </Providers>
       </body>
     </html>
   )
