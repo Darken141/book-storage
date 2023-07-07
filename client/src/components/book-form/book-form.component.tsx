@@ -1,5 +1,18 @@
 'use client'
-import { Formik } from 'formik'
+import { useFormik } from 'formik'
+
+import { useEffect } from 'react'
+import Input from '@/components/input/input.component'
+import Textarea from '@/components/textarea/textarea.component'
+import Button from '@/components/button/button.component'
+
+import { useAppDispatch, useAppSelector } from '@/redux/hooks.redux'
+import {
+  addBook,
+  updateBook,
+  clearSelectedBook,
+} from '@/redux/features/book-storage.feature'
+import { setIsUpdating } from '@/redux/features/config.feature'
 
 export interface IInitialValues {
   title: string
@@ -7,51 +20,80 @@ export interface IInitialValues {
 }
 
 export default function BookForm() {
+  const {
+    configReducer: { isUpdating },
+    bookStorageReducer: { selectedBook },
+  } = useAppSelector((state) => state)
+
   const initialValues: IInitialValues = {
     title: '',
     description: '',
   }
 
+  const formik = useFormik({
+    initialValues: initialValues,
+    onSubmit: (values, { setSubmitting, resetForm }) => {
+      if (isUpdating && selectedBook) {
+        dispatch(
+          updateBook({
+            id: selectedBook?.id,
+            ...values,
+          })
+        )
+        dispatch(clearSelectedBook())
+        dispatch(setIsUpdating(false))
+      } else {
+        dispatch(
+          addBook({
+            id: Date.now().toString(),
+            ...values,
+          })
+        )
+      }
+
+      resetForm()
+      setSubmitting(false)
+    },
+  })
+
+  const { setValues } = formik
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    if (isUpdating && selectedBook) {
+      setValues({
+        title: selectedBook.title,
+        description: selectedBook.description,
+      })
+    }
+  }, [isUpdating, selectedBook, setValues])
+
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2))
-          setSubmitting(false)
-        }, 400)
-      }}
-    >
-      {({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        isSubmitting,
-      }) => (
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="title"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.title}
-          />
-          {errors.title && touched.title && errors.title}
-          <textarea
-            name="description"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.description}
-          />
-          {errors.description && touched.description && errors.description}
-          <button type="submit" disabled={isSubmitting}>
-            Submit
-          </button>
-        </form>
-      )}
-    </Formik>
+    <form onSubmit={formik.handleSubmit}>
+      <Input
+        type="text"
+        name="title"
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.title}
+        err={formik.errors.title}
+        label="Book title*"
+        placeholder="The Lord of the Rings"
+        required
+      />
+      <Textarea
+        name="description"
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.description}
+        err={formik.errors.description}
+        label="Book description"
+        placeholder="The Lord of the Rings is an epic high fantasy novel by the English author and scholar J. R. R. Tolkien. Set in Middle-earth, the world at some distant time in the past, the story began as a sequel to Tolkien's 1937 children's book The Hobbit, but eventually developed into a much larger work. Written in stages between 1937 and 1949, The Lord of the Rings is one of the best-selling books ever written, with over 150 million copies sold."
+        rows={10}
+      />
+      <Button type="submit" disabled={formik.isSubmitting}>
+        {isUpdating ? 'Update book' : 'Add book'}
+      </Button>
+    </form>
   )
 }
