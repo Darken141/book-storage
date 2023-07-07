@@ -1,0 +1,35 @@
+.item {
+  cursor: pointer;
+  background-color: #323232;
+  padding: 2.5rem;
+}
+
+.item:nth-child(odd) {
+  background-color: #444;
+}
+
+.item:hover {
+  background-color: #555;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 2rem;
+}
+
+.item-header-h3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
