@@ -23,10 +23,13 @@ export default function BookOverview({
       onClick={(e) => onItemClick && onItemClick(e, book.id)}
     >
       <header className={styles['item-header']}>
-        <h2
-          className={styles['item-header-h3']}
-          dangerouslySetInnerHTML={{ __html: book.title }}
-        />
+        <div>
+          <span className={styles['item-author']}>{book.author}</span>
+          <h2
+            className={styles['item-header-h3']}
+            dangerouslySetInnerHTML={{ __html: book.title }}
+          />
+        </div>
         <div className={styles['icons']}>
           <button
             className="icon-button"

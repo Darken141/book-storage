@@ -23,33 +23,73 @@ export function searchAndHighlight(query: string, arr: IBook[]): IBook[] {
 
 export const booksSeed = [
   {
-    id: '1',
-    title: 'The Lord of the Rings - The Fellowship of the Ring',
+    id: '001',
+    title: 'The Catcher in the Rye',
+    author: 'J.D. Salinger',
     description:
-      'The Lord of the Rings is an epic high-fantasy novel written by English author and scholar J. R. R. Tolkien.',
+      'The Catcher in the Rye is a novel by J.D. Salinger. It follows Holden Caulfield, a disaffected teenager who wanders the streets of New York City, questioning the phoniness of the adult world and searching for authenticity.',
   },
   {
-    id: '2',
-    title: 'The Hobbit - There and Back Again',
+    id: '002',
+    title: 'To Kill a Mockingbird',
+    author: 'Harper Lee',
     description:
-      'The Hobbit, or There and Back Again is a childrens fantasy novel by English author J. R. R. Tolkien.',
+      'To Kill a Mockingbird is a novel by Harper Lee. Set in the 1930s in the fictional town of Maycomb, Alabama, the story explores racial injustice and moral growth through the eyes of Scout Finch, a young girl.',
   },
   {
-    id: '3',
-    title: 'The Silmarillion',
+    id: '003',
+    title: '1984',
+    author: 'George Orwell',
     description:
-      'The Silmarillion is a collection of mythopoeic works by English writer J. R. R. Tolkien, edited and published posthumously by his son, Christopher Tolkien, in 1977, with assistance from Guy Gavriel Kay.',
+      "1984 is a dystopian novel by George Orwell. It depicts a totalitarian society in which the government controls every aspect of people's lives. The novel explores themes of surveillance, censorship, and the power of language.",
   },
   {
-    id: '4',
-    title: 'The Children of Húrin',
+    id: '004',
+    title: 'Pride and Prejudice',
+    author: 'Jane Austen',
     description:
-      'The Children of Húrin is an epic fantasy novel which forms the completion of a tale by J. R. R. Tolkien. He wrote the original version of the story in the late 1910s, revised it several times later, but did not complete it before his death in 1973.',
+      'Pride and Prejudice is a classic novel by Jane Austen. It follows the story of Elizabeth Bennet as she navigates issues of love, class, and societal expectations in 19th-century England.',
   },
   {
-    id: '5',
-    title: 'The Fall of Gondolin',
+    id: '005',
+    title: 'The Great Gatsby',
+    author: 'F. Scott Fitzgerald',
     description:
-      'The Fall of Gondolin is, in the writings of J.R.R. Tolkien, one of the original Lost Tales which formed the basis for a section in his later work, The Silmarillion. A stand-alone, book-length version of the story was published on 30 August 2018.',
+      'The Great Gatsby is a novel by F. Scott Fitzgerald set in the Roaring Twenties. It explores themes of wealth, love, and the corruption of the American Dream through the eyes of the enigmatic Jay Gatsby.',
+  },
+  {
+    id: '006',
+    title: 'Moby-Dick',
+    author: 'Herman Melville',
+    description:
+      "Moby-Dick is an epic novel by Herman Melville. It tells the story of Captain Ahab's relentless pursuit of the great white whale, Moby Dick, and explores themes of obsession, fate, and the nature of evil.",
+  },
+  {
+    id: '007',
+    title: 'The Lord of the Rings',
+    author: 'J.R.R. Tolkien',
+    description:
+      'The Lord of the Rings is a fantasy trilogy by J.R.R. Tolkien. Set in the world of Middle-earth, it follows the quest of Frodo Baggins to destroy the One Ring and defeat the Dark Lord Sauron.',
+  },
+  {
+    id: '008',
+    title: 'Jane Eyre',
+    author: 'Charlotte Brontë',
+    description:
+      'Jane Eyre is a novel by Charlotte Brontë. It tells the story of Jane Eyre, an orphan who becomes a governess and falls in love with her employer, Mr. Rochester. The novel explores themes of love, independence, and social class.',
+  },
+  {
+    id: '009',
+    title: 'Brave New World',
+    author: 'Aldous Huxley',
+    description:
+      'Brave New World is a dystopian novel by Aldous Huxley. Set in a future society where humans are genetically engineered and controlled, it examines the dangers of technology, consumerism, and loss of individuality.',
+  },
+  {
+    id: '010',
+    title: 'The Hobbit',
+    author: 'J.R.R. Tolkien',
+    description:
+      'The Hobbit is a fantasy novel by J.R.R. Tolkien. It follows the adventures of Bilbo Baggins, a hobbit who is recruited by the wizard Gandalf to join a group of dwarves on a quest to reclaim their homeland from the dragon Smaug.',
   },
 ]

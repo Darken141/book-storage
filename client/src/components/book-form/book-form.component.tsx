@@ -20,11 +20,13 @@ import * as Yup from 'yup'
 
 const validationSchema = Yup.object({
   title: Yup.string().required('Title is required'),
+  author: Yup.string(),
   description: Yup.string().max(300, 'Description is too long'),
 })
 
 export interface IInitialValues {
   title: string
+  author: string
   description: string
 }
 
@@ -35,6 +37,7 @@ export default function BookForm() {
 
   const initialValues: IInitialValues = {
     title: '',
+    author: '',
     description: '',
   }
 
@@ -77,6 +80,7 @@ export default function BookForm() {
     if (isUpdating && selectedBook) {
       setValues({
         title: selectedBook.title,
+        author: selectedBook.author,
         description: selectedBook.description,
       })
     }
@@ -91,9 +95,19 @@ export default function BookForm() {
         onBlur={formik.handleBlur}
         value={formik.values.title}
         err={formik.errors.title}
-        label="Book title*"
+        label="Title*"
         placeholder="The Lord of the Rings"
         required
+      />
+      <Input
+        type="text"
+        name="author"
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.author}
+        err={formik.errors.author}
+        label="Author"
+        placeholder="J. R. R. Tolkien"
       />
       <Textarea
         name="description"
@@ -101,7 +115,7 @@ export default function BookForm() {
         onBlur={formik.handleBlur}
         value={formik.values.description}
         err={formik.errors.description}
-        label="Book description"
+        label="Description"
         placeholder="The Lord of the Rings is an epic high fantasy novel by the English author and scholar J. R. R. Tolkien. Set in Middle-earth..."
         rows={10}
       />
