@@ -29,10 +29,8 @@ export interface IInitialValues {
 }
 
 export default function BookForm() {
-  const {
-    configReducer: { isUpdating },
-    bookStorageReducer: { selectedBook },
-  } = useAppSelector((state) => state)
+  const { selectedBook } = useAppSelector((state) => state.bookStorageReducer)
+  const { isUpdating } = useAppSelector((state) => state.configReducer)
   const dispatch = useAppDispatch()
 
   const initialValues: IInitialValues = {
