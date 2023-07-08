@@ -41,7 +41,6 @@ export default function BookList() {
   }
 
   const handlePageChange = (pageNumber: number) => {
-    console.log(pageNumber)
     setState((prevValue) => ({ ...prevValue, page: pageNumber }))
   }
 
