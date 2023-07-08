@@ -1,4 +1,5 @@
 import BookForm from '@/components/book-form/book-form.component'
+import BookFilter from '@/components/book-filter/book-filter.component'
 import BookList from '@/components/book-list/book-list.component'
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
           <BookForm />
         </section>
         <section className="">
+          <BookFilter />
           <BookList />
         </section>
       </div>
