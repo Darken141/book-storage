@@ -53,6 +53,7 @@
 }
 
 .close-icon-button {
+  cursor: pointer;
   font-size: 2rem;
   padding: 0.5rem;
   display: flex;
