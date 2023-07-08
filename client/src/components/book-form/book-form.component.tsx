@@ -14,6 +14,8 @@ import {
 } from '@/redux/features/book-storage.feature'
 import { setIsUpdating } from '@/redux/features/config.feature'
 
+import styles from './book-form.module.css'
+
 export interface IInitialValues {
   title: string
   description: string
@@ -24,6 +26,7 @@ export default function BookForm() {
     configReducer: { isUpdating },
     bookStorageReducer: { selectedBook },
   } = useAppSelector((state) => state)
+  const dispatch = useAppDispatch()
 
   const initialValues: IInitialValues = {
     title: '',
@@ -56,8 +59,13 @@ export default function BookForm() {
     },
   })
 
-  const { setValues } = formik
-  const dispatch = useAppDispatch()
+  const { setValues, resetForm } = formik
+
+  const onCancelClick = () => {
+    dispatch(clearSelectedBook())
+    dispatch(setIsUpdating(false))
+    resetForm()
+  }
 
   useEffect(() => {
     if (isUpdating && selectedBook) {
@@ -91,9 +99,25 @@ export default function BookForm() {
         placeholder="The Lord of the Rings is an epic high fantasy novel by the English author and scholar J. R. R. Tolkien. Set in Middle-earth, the world at some distant time in the past, the story began as a sequel to Tolkien's 1937 children's book The Hobbit, but eventually developed into a much larger work. Written in stages between 1937 and 1949, The Lord of the Rings is one of the best-selling books ever written, with over 150 million copies sold."
         rows={10}
       />
-      <Button type="submit" disabled={formik.isSubmitting}>
-        {isUpdating ? 'Update book' : 'Add book'}
-      </Button>
+      <div className={styles['buttons']}>
+        <Button
+          type="submit"
+          disabled={formik.isSubmitting}
+          className="primary"
+        >
+          {isUpdating ? 'Update book' : 'Add book'}
+        </Button>
+        {isUpdating && (
+          <Button
+            type="button"
+            onClick={onCancelClick}
+            disabled={formik.isSubmitting}
+            className="outline"
+          >
+            Cancel
+          </Button>
+        )}
+      </div>
     </form>
   )
 }
