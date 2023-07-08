@@ -10,11 +10,11 @@
 .input {
   width: 100%;
   padding: 1.2rem 1.6rem;
-  border-bottom: 1px solid #777;
+  border-bottom: 1px solid var(--input-border-color);
   font-size: 1.4rem;
   outline: none;
-  background-color: #323232;
-  color: #fff;
+  background-color: var(--input-bg-color);
+  color: var(--input-color);
   transition: border-bottom 0.2s ease-in-out;
 }
 
@@ -46,11 +46,11 @@
 }
 
 .input:focus {
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid var(--input-focus-border-color);
 }
 
 .input::placeholder {
-  color: #777;
+  color: var(--input-placeholder-color);
 }
 
 .input-error {
@@ -62,7 +62,7 @@
 }
 
 .input-error-message {
-  color: #ef4444;
+  color: var(--input-red);
   font-size: 1.2rem;
   margin-top: 0.6rem;
 }

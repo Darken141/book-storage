@@ -1,15 +1,16 @@
 .item {
   cursor: pointer;
-  background-color: #323232;
+  background-color: var(--container-bg-color);
   padding: 2.5rem;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .item:nth-child(odd) {
-  background-color: #444;
+  background-color: var(--container-odd-bg-color);
 }
 
 .item:hover {
-  background-color: #555;
+  background-color: var(--container-hover-bg-color);
 }
 
 .item-header {

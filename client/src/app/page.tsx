@@ -7,7 +7,7 @@ export default function Home() {
     <main>
       <h1 className="heading">BOOK STORAGE</h1>
 
-      <div className="container grid-2">
+      <div className="container grid-cols-2">
         <section className="">
           <BookForm />
         </section>
