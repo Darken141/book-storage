@@ -1,0 +1,16 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr auto 6rem;
+  gap: 2rem;
+}
+
+.icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.icons button {
+  font-size: 2.5rem;
+}
