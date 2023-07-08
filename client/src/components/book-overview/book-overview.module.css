@@ -13,10 +13,19 @@
   background-color: var(--container-hover-bg-color);
 }
 
+.item-author {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  font-size: 1.2rem;
+}
+
 .item-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 1rem;
   gap: 2rem;
 }
@@ -31,6 +40,10 @@
 
 .icons {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
+}
+
+.icons button {
+  font-size: 1.8rem;
 }

@@ -105,6 +105,7 @@ export default function BookList() {
         {state.showModal && selectedBook && (
           <Modal key="modal" onClose={onCloseModal}>
             <div className={styles['modal-wrapper']}>
+              <span>{selectedBook.author}</span>
               <h2>{selectedBook.title}</h2>
               <p>{selectedBook.description}</p>
             </div>

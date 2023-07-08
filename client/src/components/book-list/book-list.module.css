@@ -8,6 +8,15 @@
   padding: 2rem 4rem;
 }
 
+.modal-wrapper span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  font-size: 1.2rem;
+}
+
 .modal-wrapper h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
