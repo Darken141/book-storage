@@ -37,3 +37,20 @@
 .icon-button:hover {
   color: #fff;
 }
+
+.primary {
+  border: 1px solid var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-black);
+}
+
+.outline {
+  border: 1px solid var(--color-primary);
+  background-color: transparent;
+  color: var(--color-primary);
+}
+
+.highlight {
+  background-color: var(--color-primary);
+  color: var(--color-black);
+}
