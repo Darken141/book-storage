@@ -1,0 +1,68 @@
+.input-container {
+  margin-bottom: 2.2rem;
+}
+
+.input-label {
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+}
+
+.input {
+  width: 100%;
+  padding: 1.2rem 1.6rem;
+  border-bottom: 1px solid var(--input-border-color);
+  font-size: 1.4rem;
+  outline: none;
+  background-color: var(--input-bg-color);
+  color: var(--input-color);
+  transition: border-bottom 0.2s ease-in-out;
+}
+
+.input::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.input::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.input::-webkit-search-decoration,
+.input::-webkit-search-cancel-button,
+.input::-webkit-search-results-button,
+.input::-webkit-search-results-decoration {
+  display: none;
+}
+
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.input:focus {
+  border-bottom: 1px solid var(--input-focus-border-color);
+}
+
+.input::placeholder {
+  color: var(--input-placeholder-color);
+}
+
+.input-error {
+  border-bottom: 1px solid #ef4444;
+}
+
+.input-error:focus {
+  border-bottom: 1px solid #ef4444;
+}
+
+.input-error-message {
+  color: var(--input-red);
+  font-size: 1.2rem;
+  margin-top: 0.6rem;
+}

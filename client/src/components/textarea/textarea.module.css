@@ -1,0 +1,43 @@
+.textarea-container {
+  margin-bottom: 2.2rem;
+}
+
+.textarea-label {
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+}
+
+.textarea {
+  resize: none;
+  border: none;
+  width: 100%;
+  padding: 1.2rem 1.6rem;
+  border-bottom: 1px solid #777;
+  font-size: 1.4rem;
+  outline: none;
+  background-color: #323232;
+  color: #fff;
+  transition: border-bottom 0.2s ease-in-out;
+}
+
+.textarea:focus {
+  border-bottom: 1px solid #fff;
+}
+
+.textarea::placeholder {
+  color: #777;
+}
+
+.textarea-error {
+  border-bottom: 1px solid #ef4444;
+}
+
+.textarea-error:focus {
+  border-bottom: 1px solid #ef4444;
+}
+
+.textarea-error-message {
+  color: #ef4444;
+  font-size: 1.2rem;
+  margin-top: 0.6rem;
+}

@@ -1,0 +1,36 @@
+.item {
+  cursor: pointer;
+  background-color: var(--container-bg-color);
+  padding: 2.5rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.item:nth-child(odd) {
+  background-color: var(--container-odd-bg-color);
+}
+
+.item:hover {
+  background-color: var(--container-hover-bg-color);
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 2rem;
+}
+
+.item-header-h3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

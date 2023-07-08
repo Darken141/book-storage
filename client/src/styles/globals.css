@@ -11,8 +11,9 @@ html {
 body {
   line-height: 1.5;
   font-size: 1.6rem;
-  color: #ebebeb;
-  background-color: #232323;
+  color: var(--body-color);
+  background-color: var(--body-bg-color);
+  margin-bottom: 10rem;
 }
 
 a {
