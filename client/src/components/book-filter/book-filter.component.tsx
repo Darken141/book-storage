@@ -6,7 +6,7 @@ import Input from '../input/input.component'
 import { AiOutlineSortAscending, AiOutlineSortDescending } from 'react-icons/ai'
 
 import { useDebounce } from '@/hooks/debounce.hook'
-import { useAppDispatch } from '@/redux/hooks.redux'
+import { useAppDispatch, useAppSelector } from '@/redux/hooks.redux'
 import {
   sortAlphabeticallyAZ,
   sortAlphabeticallyZA,
@@ -17,11 +17,14 @@ import {
 import styles from './book-filter.module.css'
 
 export default function BookFilter() {
+  const numberToDisplay = useAppSelector(
+    (state) => state.bookStorageReducer.numberToDisplay
+  )
   const dispatch = useAppDispatch()
 
   const initialValues = {
     searchQuery: '',
-    numberToDisplay: 10,
+    numberToDisplay: numberToDisplay,
   }
 
   const formik = useFormik({

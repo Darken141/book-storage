@@ -9,11 +9,15 @@ interface IBookStorage {
   numberToDisplay: number
 }
 
+const initialNumberToDisplay = Number(process.env.NEXT_PUBLIC_NUMBER_TO_DISPLAY)
+  ? Number(process.env.NEXT_PUBLIC_NUMBER_TO_DISPLAY)
+  : 10
+
 const initialState = {
   books: [],
   selectedBook: null,
   searchQuery: '',
-  numberToDisplay: 10,
+  numberToDisplay: initialNumberToDisplay,
 } as IBookStorage
 
 export const bookStorage = createSlice({
