@@ -16,6 +16,13 @@ import { setIsUpdating } from '@/redux/features/config.feature'
 
 import styles from './book-form.module.css'
 
+import * as Yup from 'yup'
+
+const validationSchema = Yup.object({
+  title: Yup.string().required('Title is required'),
+  description: Yup.string().max(300, 'Description is too long'),
+})
+
 export interface IInitialValues {
   title: string
   description: string
@@ -35,6 +42,7 @@ export default function BookForm() {
 
   const formik = useFormik({
     initialValues: initialValues,
+    validationSchema: validationSchema,
     onSubmit: (values, { setSubmitting, resetForm }) => {
       if (isUpdating && selectedBook) {
         dispatch(
