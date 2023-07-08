@@ -13,7 +13,11 @@ export const EmptyList = ({ onAddClick, showAddButton }: IProps) => {
   return (
     <div className={styles['container']}>
       <h3>No books found...</h3>
-      {showAddButton && <Button onClick={onAddClick}>Add books</Button>}
+      {showAddButton && (
+        <Button onClick={onAddClick} className="primary">
+          Add books
+        </Button>
+      )}
     </div>
   )
 }
