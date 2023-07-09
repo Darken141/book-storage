@@ -1,5 +1,6 @@
 'use client'
 import { createPortal } from 'react-dom'
+import useLockedBody from '@/hooks/lock-body.hook'
 
 import { motion, Variants } from 'framer-motion'
 import { IoClose } from 'react-icons/io5'
@@ -13,6 +14,8 @@ export interface IProps {
 
 export default function Modal({ onClose, children }: IProps) {
   const portal = document.getElementById('portal')!
+  const [, setLocked] = useLockedBody(true, 'root')
+
   const modalVariants: Variants = {
     hidden: {
       opacity: 0,
@@ -41,6 +44,11 @@ export default function Modal({ onClose, children }: IProps) {
     },
   }
 
+  const handleClose = () => {
+    setLocked(false)
+    onClose()
+  }
+
   return createPortal(
     <motion.div
       variants={modalVariants}
@@ -49,7 +57,7 @@ export default function Modal({ onClose, children }: IProps) {
       exit="hidden"
       className={styles['modal']}
     >
-      <motion.button className={styles['close-button']} onClick={onClose}>
+      <motion.button className={styles['close-button']} onClick={handleClose}>
         Close modal
       </motion.button>
       <motion.div
@@ -60,7 +68,7 @@ export default function Modal({ onClose, children }: IProps) {
         className={styles['modal-container']}
       >
         <div className={styles['buttons']}>
-          <button className={styles['close-icon-button']} onClick={onClose}>
+          <button className={styles['close-icon-button']} onClick={handleClose}>
             <IoClose />
           </button>
         </div>
